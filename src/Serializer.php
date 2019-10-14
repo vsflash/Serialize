@@ -33,29 +33,6 @@ class Serializer {
         }
     }
 
-//    /**
-//     * @param string $encoder_type
-//     * @return JsonEncoder|XmlEncoder|YamlEncoder
-//     */
-//    private function getEncoder(string $encoder_type)
-//    {
-//        switch ($encoder_type) {
-//            case 'json':
-//                $encoder = new JsonEncoder();
-//                break;
-//            case 'xml':
-//                $encoder = new XmlEncoder();
-//                break;
-//            case 'yaml':
-//                $encoder = new YamlEncoder();
-//                break;
-//            default:
-//                throw new \InvalidArgumentException(\sprintf('This argument "%s" must be json|xml|yaml.', $encoder_type));
-//        }
-//
-//        return $encoder;
-//    }
-
     /**
      * Dismount object to array
      * @param $object
