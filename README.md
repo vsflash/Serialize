@@ -14,7 +14,7 @@ $ git clone create-project vsflash/serialize project-name
 
 Usage
 -----
-
+````
 use vsflash\Serialize\Tests\Book;
 use vsflash\Serialize\Serializer;
 use vsflash\Serialize\encoders\JsonEncoder;
@@ -35,6 +35,6 @@ $json = $serializer->serialize();
 
 $serializer = new Serializer($book, new XmlEncoder());
 $xml = $serializer->serialize();
-
+````
 
 Copyright (c) 2019, Vadim Selyan
