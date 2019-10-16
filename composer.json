@@ -1,7 +1,7 @@
 {
   "name": "vsflash/serialize",
   "description": "This library is designed to serialize objects of different classes into various data formats.",
-  "keywords": ["project", "template", "structure", "skeleton", "phpunit"],
+  "keywords": ["library", "serialize"],
   "type": "library",
   "license": "BSD-3-Clause",
   "authors": [
