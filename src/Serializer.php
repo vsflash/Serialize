@@ -4,9 +4,10 @@
 namespace vsflash\Serialize;
 
 
-use vsflash\Serialize\encoders\EncodeInterface;
+use vsflash\Serialize\encoders\EncoderInterface;
 
-class Serializer {
+class Serializer
+{
 
     /**
      * @var array
@@ -14,23 +15,18 @@ class Serializer {
     private $data;
 
     /**
-     * @var EncodeInterface
+     * @var EncoderInterface
      */
     private $encoder;
 
     /**
      * Serializer constructor.
      * @param $object
-     * @param EncodeInterface $encoder
+     * @param EncoderInterface $encoder
      */
-    public function __construct($object, EncodeInterface $encoder)
+    public function __construct(EncoderInterface $encoder)
     {
-        if (!is_object($object)) {
-            throw new \InvalidArgumentException(\sprintf('This argument "%s" must be have type Object.', $object));
-        } else {
-            $this->data = $this->dismount($object);
-            $this->encoder = $encoder;
-        }
+        $this->encoder = $encoder;
     }
 
     /**
@@ -41,7 +37,7 @@ class Serializer {
     private function dismount($object)
     {
         $reflectionClass = new \ReflectionClass(get_class($object));
-        $array = array();
+        $array = [];
         foreach ($reflectionClass->getProperties() as $property) {
             $property->setAccessible(true);
             $array[$property->getName()] = $property->getValue($object);
@@ -52,10 +48,16 @@ class Serializer {
 
     /**
      * Serialize data
-     * @return false|mixed|string
+     * @param $object
+     * @return mixed
      */
-    public function serialize()
+    public function serialize($object)
     {
-        return $this->encoder->encode($this->data);
+        if (!is_object($object)) {
+            throw new \InvalidArgumentException(\sprintf('This argument "%s" must be have type Object.', $object));
+        } else {
+            $this->data = $this->dismount($object);
+            return $this->encoder->encode($this->data);
+        }
     }
 }
