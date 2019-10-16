@@ -9,12 +9,12 @@ Installation
 For creating new project based on this template just execute the following command
 
 ```
-$ git clone create-project vsflash/serialize project-name
+$ composer require vsflash/serialize
 ```
 
 Usage
 -----
-````
+```php
 use vsflash\Serialize\Tests\Book;
 use vsflash\Serialize\Serializer;
 use vsflash\Serialize\encoders\JsonEncoder;
@@ -27,14 +27,30 @@ $book->setDescription('Even bad code can function. But if code isn\'t clean, it 
 $book->setAuthor('Robert Martin');
 $book->setPrice(350);
 
-$serializer = new Serializer($book, new YamlEncoder());
-$yaml = $serializer->serialize();
+$serializer = new Serializer(new YamlEncoder());
+$yaml = $serializer->serialize($book);
 
-$serializer = new Serializer($book, new JsonEncoder());
-$json = $serializer->serialize();
+$serializer = new Serializer(new JsonEncoder());
+$json = $serializer->serialize($book);
 
-$serializer = new Serializer($book, new XmlEncoder());
-$xml = $serializer->serialize();
-````
+$serializer = new Serializer(new XmlEncoder());
+$xml = $serializer->serialize($book);
+```
+
+Expanding library
+-----
+Create NewEncoder in dir src/encoders
+```php
+namespace vsflash\Serialize\encoders;
+
+class NameEncoder implements EncoderInterface
+{
+    public function encode(array $data)
+    {
+        $result = name_encoder($data);
+        return $result;
+    }
+}
+```
 
 Copyright (c) 2019, Vadim Selyan
