@@ -5,7 +5,7 @@ namespace vsflash\Serialize\encoders;
 
 use Symfony\Component\Yaml\Yaml;
 
-class YamlEncoder implements EncodeInterface {
+class YamlEncoder implements EncoderInterface {
 
     /**
      * Encode data to YAML

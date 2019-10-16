@@ -6,7 +6,7 @@ namespace vsflash\Serialize\encoders;
 
 use SimpleXMLElement;
 
-class XmlEncoder implements EncodeInterface {
+class XmlEncoder implements EncoderInterface {
 
     /**
      * Encode $data to XML

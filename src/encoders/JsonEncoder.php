@@ -6,7 +6,7 @@ namespace vsflash\Serialize\encoders;
 
 use Exception;
 
-class JsonEncoder implements EncodeInterface
+class JsonEncoder implements EncoderInterface
 {
     /**
      * Encode data to JSON
