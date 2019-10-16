@@ -21,7 +21,6 @@ class Serializer
 
     /**
      * Serializer constructor.
-     * @param $object
      * @param EncoderInterface $encoder
      */
     public function __construct(EncoderInterface $encoder)

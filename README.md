@@ -47,7 +47,7 @@ class NameEncoder implements EncoderInterface
 {
     public function encode(array $data)
     {
-        $result = name_encoder($data);
+        $result = encoder_method($data);
         return $result;
     }
 }

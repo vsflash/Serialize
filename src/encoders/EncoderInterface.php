@@ -4,7 +4,8 @@
 namespace vsflash\Serialize\encoders;
 
 
-interface EncoderInterface {
+interface EncoderInterface
+{
 
     /**
      * Encode data

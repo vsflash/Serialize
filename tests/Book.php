@@ -4,7 +4,8 @@
 namespace vsflash\Serialize\Tests;
 
 
-class Book {
+class Book
+{
     /**
      * @var string
      */

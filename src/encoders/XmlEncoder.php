@@ -6,7 +6,8 @@ namespace vsflash\Serialize\encoders;
 
 use SimpleXMLElement;
 
-class XmlEncoder implements EncoderInterface {
+class XmlEncoder implements EncoderInterface
+{
 
     /**
      * Encode $data to XML
@@ -34,7 +35,7 @@ class XmlEncoder implements EncoderInterface {
                 $this->createXml($new_object, $value);
             } else {
                 // if the key is an integer, it needs text with it to actually work.
-                if ($key == (int) $key) {
+                if ($key == (int)$key) {
                     $key = "key_$key";
                 }
                 $xml->addChild($key, $value);
